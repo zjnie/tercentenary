@@ -1,0 +1,68 @@
+@import 'transition.styl'
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: '微软雅黑';
+	font-size: 14px;
+}
+
+
+.main-box {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
+	padding: 20px 20px 40px 20px;
+	width: 86%;
+	border-radius: 8px;
+	border: 2px solid #df3329;
+	
+	.img-header {
+		width: 100%;
+		margin-bottom: 16px;
+	}
+	
+	.img-footer {
+		margin-top: 20px;
+		width: 100%;
+	}
+	
+	p {
+		font-family: 'SourceHanSerifCN-Bold';
+		font-size: 16px;
+		line-height: 30px;
+		text-align: center;
+		color: #000;
+		margin: 0 -20px;
+	}
+	
+	.highlight {
+		color: #c13b2f;
+	}
+}
+
+.teacher .main-box {
+	background-color: rgba(255, 244, 213, .8);
+}
+
+.student .main-box {
+	background: url('@/assets/student/main-box.png') no-repeat;
+	background-size: cover;
+}
+
+.new-student .main-box {
+	border: none;
+	background: url('@/assets/new-student/main-box.jpg') no-repeat;
+	box-shadow: 10px 10px 10px 0 rgba(217, 86, 58, 0.59);
+}
+

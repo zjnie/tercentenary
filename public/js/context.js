@@ -1,0 +1,1 @@
+window.$basePath = 'http://res.nnu.edu.cn'

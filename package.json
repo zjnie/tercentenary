@@ -1,0 +1,46 @@
+{
+  "name": "tercentenary",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "core-js": "^3.8.3",
+    "lib-flexible": "^0.3.2",
+    "vconsole": "^3.14.6",
+    "vue": "^2.6.14",
+    "vue-cropper-h5": "^1.2.5",
+    "vue-router": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "postcss": "^8.4.16",
+    "postcss-pxtorem": "^6.0.0",
+    "stylus": "^0.55.0",
+    "stylus-loader": "^6.1.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "postcss-pxtorem": {
+        "rootValue": 37.5,
+        "propList": [
+          "*"
+        ],
+        "minPixelValue": 2
+      }
+    }
+  }
+}
