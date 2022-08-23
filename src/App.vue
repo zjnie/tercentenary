@@ -29,21 +29,36 @@
       }
     },
     created() {
-      Vue.prototype.$userInfo = {
-        role: 1,
-        wid: 2010010,
-        editable: true,
-        isVisitor: true
-      }
-      const path = {
-        0: '/teacher',
-        1: '/teacher',
-        2: '/student',
-        3: '/new-student'
-      }
+      // Vue.prototype.$userInfo = {
+      //   role: 1,
+      //   wid: 2010010,
+      //   editable: true,
+      //   isVisitor: false,
+      //   years: 20,
+      //   lxrq: '2010-25-45',
+      //   rxny: '2010-25-45',
+      //   days: 300,
+      //   jg: 'xxxx',
+      //   distance: '3333',
+      //   chineseEra: 'xx',
+      //   skrs: '2222',
+      //   jslb: '2',
+      //   fwbmsl: 'ssss',
+      //   sszs: '3322',
+      //   scjyrq: '20155-5889',
+      //   cqctdk: 'xxx',
+      //   yxmc: 'yxmc'
+      // }
+      // const path = {
+      //   0: '/teacher',
+      //   1: '/teacher',
+      //   2: '/student',
+      //   3: '/new-student'
+      // }
+      //
+      // this.$router.push(path[3])
 
-      this.$router.push(path[0])
-      // this.getUserInfo()
+      this.getUserInfo()
     },
     methods: {
       getUserInfo() {

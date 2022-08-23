@@ -16,6 +16,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.cqctdk) {
+        this.$router.replace('/teacher/photo')
+      }
     }
   }
 </script>

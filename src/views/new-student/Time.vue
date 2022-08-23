@@ -16,6 +16,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.rxny || !this.$userInfo.yxmc) {
+        this.$router.replace('/student/distance')
+      }
     }
   }
 </script>

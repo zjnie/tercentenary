@@ -16,6 +16,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.xksl || !this.$userInfo.skjsrs) {
+        this.$router.replace('/student/read')
+      }
     }
   }
 </script>

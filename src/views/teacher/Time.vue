@@ -17,6 +17,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.lxrq || !this.$userInfo.days) {
+        this.$router.replace('/teacher/distance')
+      }
     }
   }
 </script>

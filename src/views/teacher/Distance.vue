@@ -1,6 +1,5 @@
 <template>
   <Container :to="to">
-    <div id="allmap"></div>
     <div class="main-box">
       <img class="img-header" src="@/assets/teacher/distance-header.png" />
       <p>您怀着梦想与憧憬</p>
@@ -21,6 +20,11 @@
     computed: {
       to() {
         return this.$userInfo.jslb === '1' ? '/teacher/education' : '/teacher/service'
+      }
+    },
+    created() {
+      if (!this.$userInfo.jg || !this.$userInfo.distance) {
+        this.$router.replace(this.to)
       }
     }
   }

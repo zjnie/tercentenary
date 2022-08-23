@@ -20,6 +20,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.chineseEra || !this.$userInfo.fwbmsl || !this.$userInfo.sszs) {
+        this.$router.replace('/teacher/read')
+      }
     }
   }
 </script>

@@ -16,6 +16,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.jg || !this.$userInfo.distance) {
+        this.$router.replace('/student/study')
+      }
     }
   }
 </script>

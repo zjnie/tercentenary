@@ -2,7 +2,7 @@
   <Container to="/teacher/read">
     <div class="main-box">
       <img class="img-header" src="@/assets/teacher/education-header.png" />
-      <p class="highlight">{{ $userInfo.chineseEra }}</p>
+      <p class="highlight">{{ $userInfo.chineseEra }}年</p>
       <p>是您在南师大教书育人的开始</p>
       <p>三尺讲台，四季耕耘</p>
       <p>截至目前</p>
@@ -17,6 +17,11 @@
   export default {
     data() {
       return {}
+    },
+    created() {
+      if (!this.$userInfo.chineseEra || !this.$userInfo.skrs) {
+        this.$router.replace('/teacher/read')
+      }
     }
   }
 </script>
