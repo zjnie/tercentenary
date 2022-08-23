@@ -49,15 +49,13 @@
         this.y = event.touches[0].clientY
       },
       handleTouchend(event) {
-        if (this.$el.clientHeight + this.$el.scrollTop !== this.$el.scrollHeight) return
-
         const curY = event.changedTouches[0].clientY
         const diff = curY - this.y
         const isChange = Math.abs(diff) > 10
-        const up = diff < 0
 
         if (!isChange) return
-        if (up) return this.next()
+        if (diff < 0 && this.$el.clientHeight + this.$el.scrollTop < this.$el.scrollHeight + 10) return this.next()
+        if (diff > 0 && this.$el.scrollTop < 10) return this.$router.go(-1)
       }
     }
   }

@@ -36,7 +36,7 @@
         isVisitor: true
       }
       const path = {
-        0: '/teacher/history',
+        0: '/teacher',
         1: '/teacher',
         2: '/student',
         3: '/new-student'
@@ -71,7 +71,7 @@
           }
 
           const path = {
-            0: '/teacher/history',
+            0: '/teacher',
             1: '/teacher',
             2: '/student',
             3: '/new-student'
