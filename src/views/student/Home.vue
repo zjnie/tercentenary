@@ -22,9 +22,9 @@
 </script>
 
 <style lang="stylus" scoped>
-  .container.slide-enter-to {
-    transition-duration: 0s;
-  }
+  //.container.slide-enter-to {
+  //  transition-duration: 0s;
+  //}
 
   .logo {
     margin-top: 30px;

@@ -34,24 +34,44 @@
 	transition: transform .5s;
 }
 
-// slide
-.slide-leave {
+// slide-down
+.slide-down-leave {
 	transform: translateY(0);
 }
 
-.slide-leave-to {
+.slide-down-leave-to {
+	transition: all 1s;
+	transform: translateY(100%);
+}
+
+.slide-down-enter {
+	transform: translateY(-100%)
+}
+
+.slide-down-enter-to {
+	transform: translateY(0);
+	transition: all 1s;
+}
+
+// slide-up
+.slide-up-leave {
+	transform: translateY(0);
+}
+
+.slide-up-leave-to {
 	transition: all 1s;
 	transform: translateY(-100%);
 }
 
-.slide-enter {
+.slide-up-enter {
 	transform: translateY(100%)
 }
 
-.slide-enter-to {
+.slide-up-enter-to {
 	transform: translateY(0);
 	transition: all 1s;
 }
+
 
 
 

@@ -42,6 +42,7 @@
     },
     methods: {
       next() {
+        this.$parent.$parent.name = 'slide-up'
         if (this.to) return this.$router.push(this.to)
         this.$emit('next')
       },
@@ -49,13 +50,19 @@
         this.y = event.touches[0].clientY
       },
       handleTouchend(event) {
+        const isHome = ['/teacher/home', '/student/home', '/new-student/home'].includes(this.$route.path)
         const curY = event.changedTouches[0].clientY
         const diff = curY - this.y
         const isChange = Math.abs(diff) > 10
 
         if (!isChange) return
-        if (diff < 0 && this.$el.clientHeight + this.$el.scrollTop < this.$el.scrollHeight + 10) return this.next()
-        if (diff > 0 && this.$el.scrollTop < 10) return this.$router.go(-1)
+        if (diff < 0 && this.$el.clientHeight + this.$el.scrollTop < this.$el.scrollHeight + 10) {
+          return this.next()
+        }
+        if (diff > 0 && !isHome && this.$el.scrollTop < 10) {
+          this.$parent.$parent.name = 'slide-down'
+          return window.history.back()
+        }
       }
     }
   }

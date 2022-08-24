@@ -2,7 +2,7 @@
   <Container :to="to">
     <div class="main-box">
       <div class="photo-frame">
-        <img class="frame" :src="frameImage"/>
+        <img class="frame" :src="frameImage" @error="handleError"/>
         <img
           v-if="phoneImage"
           class="phone"
@@ -88,8 +88,12 @@
         axios.post('/rsfw/sys/njsfdxxqydd/upload/uploadZp.do', formData).then(res => {
           if (res.data.code === 0) {
             this.phoneImage = `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`
+            console.log(this.phoneImage)
           }
         })
+      },
+      handleError() {
+        console.log('error')
       }
     }
   }

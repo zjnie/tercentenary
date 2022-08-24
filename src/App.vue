@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="slide">
+    <transition :name="name">
       <router-view class="router-view"></router-view>
     </transition>
   </div>
@@ -24,8 +24,13 @@
         }
       }
 
+      if (code === 'null' || code === 'undefined') {
+        this.code = ''
+      }
+
       return {
-        code
+        code,
+        name: 'slide-up'
       }
     },
     created() {
@@ -56,7 +61,7 @@
       //   3: '/new-student'
       // }
       //
-      // this.$router.push(path[3])
+      // this.$router.replace(path[1])
 
       this.getUserInfo()
     },
@@ -92,7 +97,7 @@
             3: '/new-student'
           }
 
-          this.$router.push(path[datas.role])
+          this.$router.replace(path[datas.role])
         })
       }
     }

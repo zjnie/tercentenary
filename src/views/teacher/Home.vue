@@ -26,9 +26,9 @@
     background-image: url("@/assets/teacher/home-bg.jpg") !important;
   }
 
-  .container.slide-enter-to {
-    transition-duration: 0s;
-  }
+  //.container.slide-enter-to {
+  //  transition-duration: 0s;
+  //}
 
   .logo {
     margin-top: 30px;
