@@ -60,7 +60,7 @@
       //   2: '/student',
       //   3: '/new-student'
       // }
-      //
+
       // this.$router.replace(path[1])
 
       this.getUserInfo()

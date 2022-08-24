@@ -2,7 +2,7 @@
   <Container :to="to">
     <div class="main-box">
       <div class="photo-frame">
-        <img class="frame" :src="frameImage" @error="handleError"/>
+        <img class="frame" :src="frameImage" />
         <img
           v-if="phoneImage"
           class="phone"
@@ -18,6 +18,7 @@
           :option="option"
           class="btn-upload-input"
           @getFile="getFile"
+          @getbase64="getbase64"
         />
         上传照片
       </span>
@@ -81,19 +82,22 @@
           }
         })
       },
+      getbase64(data) {
+        this.phoneImage = data
+      },
       getFile(file) {
         const formData = new FormData()
         formData.append('fileUpload0', file)
 
         axios.post('/rsfw/sys/njsfdxxqydd/upload/uploadZp.do', formData).then(res => {
-          if (res.data.code === 0) {
+          if (res.data.code !== 0) {
+            this.$toast.show('上传失败')
             this.phoneImage = `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`
-            console.log(this.phoneImage)
           }
+        }).catch(() => {
+          this.$toast.show('上传失败')
+          this.phoneImage = `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`
         })
-      },
-      handleError() {
-        console.log('error')
       }
     }
   }
