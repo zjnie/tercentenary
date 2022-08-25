@@ -2,7 +2,11 @@
   <Container :showNext="false">
     <div class="main-box">
       <img class="img-header" src="@/assets/teacher/end-header.png" />
-      <img class="img-content" src="@/assets/teacher/end-content.png" />
+      <div class="keyword">
+        <img class="quote" src="@/assets/teacher/quote.png">
+        <span>{{ $userInfo.keyWords }} </span>
+        <img class="quote" src="@/assets/teacher/quote.png">
+      </div>
       <p>已有</p>
       <p class="highlight">{{ count }}位师生</p>
       <p>为南师大点亮生日蜡烛</p>
@@ -44,17 +48,31 @@
             })
           }
         })
-
       }
     }
   }
 </script>
 
 <style lang="stylus" scoped>
-  .img-content {
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  .keyword {
+    position: relative;
+    font-family: 'SourceHanSerifCN-Bold';
+    font-size: 50px;
+    color: #c13b2f;
+    margin-bottom: 16px;
+
+    .quote {
+      width: 16px;
+      position: relative;
+      top: -20px;
+      margin-right: 20px;
+
+      &:nth-of-type(2) {
+        transform: rotateZ(180deg);
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
   }
 
   a {

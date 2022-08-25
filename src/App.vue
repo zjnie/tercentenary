@@ -52,7 +52,8 @@
       //   sszs: '3322',
       //   scjyrq: '20155-5889',
       //   cqctdk: 'xxx',
-      //   yxmc: 'yxmc'
+      //   yxmc: 'yxmc',
+      //   keyWords: '未来可期'
       // }
       // const path = {
       //   0: '/teacher',
@@ -60,7 +61,7 @@
       //   2: '/student',
       //   3: '/new-student'
       // }
-
+      //
       // this.$router.replace(path[1])
 
       this.getUserInfo()
