@@ -75,7 +75,7 @@
           3: '/new-student'
         }
 
-        this.$router.replace(path[3])
+        this.$router.replace(path[1])
       },
       getUserInfo() {
         let params = {}

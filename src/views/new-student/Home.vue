@@ -46,7 +46,8 @@
     &::before {
       position: absolute;
       left: -15px;
-      top: 8px;
+      top: 50%;
+      transform: translateY(-50%);
       content: ''
       border-top: 6px solid transparent;
       border-bottom: 6px solid transparent;
@@ -56,7 +57,8 @@
     &::after {
       position: absolute;
       right: -15px;
-      top: 8px;
+      top: 50%;
+      transform: translateY(-50%);
       content: ''
       border-top: 6px solid transparent;
       border-bottom: 6px solid transparent;
