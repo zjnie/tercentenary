@@ -29,7 +29,7 @@
     },
     methods: {
       onShare() {
-        axios.post('/rsfw/sys/njsfdxxqydd/jszt/saveZfjs.do').then(res => {
+        axios.post(`/rsfw/sys/${window.$folderName}/jszt/saveZfjs.do`).then(res => {
           if (res.data.code === 0) {
             this.count = res.data.datas.zfjs
             window['bh-mixin-sdk'].default()(res => {
@@ -37,7 +37,7 @@
               res.sdk.bh.social.share({
                 title: '百廿风华 厚生致远',
                 content: '庆祝南京师范大学建校120周年',
-                iconUrl: window.location.origin + '/rsfw/sys/njsfdxxqydd/' + require('@/assets/common/home-logo.png'),
+                iconUrl: window.location.origin + `/rsfw/sys/${window.$folderName}/` + require('@/assets/common/home-logo.png'),
                 linkUrl: window.location.origin + window.location.pathname + '?code=' + this.$userInfo.wid
               })
             })

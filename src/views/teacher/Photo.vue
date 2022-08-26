@@ -30,8 +30,8 @@
 </template>
 
 <script>
-  import axios  from 'axios'
-  import H5Cropper  from 'vue-cropper-h5'
+  import axios from 'axios'
+  import H5Cropper from 'vue-cropper-h5'
 
   const frames = [
     { image: require('@/assets/teacher/photo-frame-1.png'), padding: '46px 20px 85px 20px' },
@@ -52,7 +52,8 @@
         option: {
           fixed: false,
           autoCropWidth: 240,
-          autoCropHeight: 300
+          autoCropHeight: 300,
+          info: true
         }
       }
     },
@@ -74,7 +75,7 @@
     methods: {
       onSelect() {
         const frameIndex = [1, 2, 3, 0][this.frameIndex]
-        axios.get('/rsfw/sys/njsfdxxqydd/jszt/saveXk.do', {
+        axios.get(`/rsfw/sys/${window.$folderName}/jszt/saveXk.do`, {
           params: {
             xkId: frameIndex
           }
@@ -88,10 +89,11 @@
         this.phoneImage = data
       },
       getFile(file) {
+        console.log(file)
         const formData = new FormData()
         formData.append('fileUpload0', file)
 
-        axios.post('/rsfw/sys/njsfdxxqydd/upload/uploadZp.do', formData).then(res => {
+        axios.post(`/rsfw/sys/${window.$folderName}/upload/uploadZp.do`, formData).then(res => {
           if (res.data.code !== 0) {
             this.$toast.show('上传失败')
             this.phoneImage = `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`
