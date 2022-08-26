@@ -19,6 +19,8 @@
           class="btn-upload-input"
           @getFile="getFile"
           @getbase64="getbase64"
+          @touchstart.native.stop
+          @touchend.native.stop
         />
         上传照片
       </span>
@@ -45,7 +47,7 @@
     data() {
       return {
         frameIndex: this.$userInfo.xkId || 0,
-        phoneImage: `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do`,
+        phoneImage: `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`,
         visible: false,
         option: {
           fixed: false,

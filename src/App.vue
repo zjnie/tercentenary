@@ -34,37 +34,38 @@
       }
     },
     created() {
-      // Vue.prototype.$userInfo = {
-      //   role: 1,
-      //   wid: 2010010,
-      //   editable: true,
-      //   isVisitor: false,
-      //   years: 20,
-      //   lxrq: '2010-25-45',
-      //   rxny: '2010-25-45',
-      //   days: 300,
-      //   jg: 'xxxx',
-      //   distance: '3333',
-      //   chineseEra: 'xx',
-      //   skrs: '2222',
-      //   jslb: '2',
-      //   fwbmsl: 'ssss',
-      //   sszs: '3322',
-      //   scjyrq: '20155-5889',
-      //   cqctdk: 'xxx',
-      //   yxmc: 'yxmc',
-      //   keyWords: '未来可期'
-      // }
-      // const path = {
-      //   0: '/teacher',
-      //   1: '/teacher',
-      //   2: '/student',
-      //   3: '/new-student'
-      // }
-      //
-      // this.$router.replace(path[1])
+      Vue.prototype.$userInfo = {
+        role: 1,
+        id: 2010010,
+        wid: 2010010,
+        editable: true,
+        isVisitor: false,
+        years: 20,
+        lxrq: '2010-25-45',
+        rxny: '2010-25-45',
+        days: 300,
+        jg: 'xxxx',
+        distance: '3333',
+        chineseEra: 'xx',
+        skrs: '2222',
+        jslb: '2',
+        fwbmsl: 'ssss',
+        sszs: '3322',
+        scjyrq: '20155-5889',
+        cqctdk: 'xxx',
+        yxmc: 'yxmc',
+        keyWords: '未来可期'
+      }
+      const path = {
+        0: '/teacher',
+        1: '/teacher',
+        2: '/student',
+        3: '/new-student'
+      }
 
-      this.getUserInfo()
+      this.$router.replace(path[1])
+
+      //this.getUserInfo()
     },
     methods: {
       getUserInfo() {
