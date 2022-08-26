@@ -65,11 +65,14 @@
           yxmc: 'yxmc',
           keyWords: '未来可期'
         }
+
+        window.$userInfo = Vue.prototype.$userInfo
+
         const path = {
           0: '/teacher',
           1: '/teacher',
           2: '/student',
-          3: '/new-student/photo'
+          3: '/new-student'
         }
 
         this.$router.replace(path[3])
@@ -97,6 +100,8 @@
             editable: !this.code,
             isVisitor: datas.role === 0
           }
+
+          window.$userInfo = Vue.prototype.$userInfo
 
           const path = {
             0: '/teacher',

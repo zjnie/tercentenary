@@ -17,9 +17,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.xksl || !this.$userInfo.skjsrs) {
-        this.$router.replace('/student/read')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.xksl || !window.$userInfo.skjsrs) {
+        next('/student/read')
+      }
+      else {
+        next()
       }
     }
   }

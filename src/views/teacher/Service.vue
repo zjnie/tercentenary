@@ -21,9 +21,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.chineseEra || !this.$userInfo.fwbmsl || !this.$userInfo.sszs) {
-        this.$router.replace('/teacher/read')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.chineseEra || !window.$userInfo.fwbmsl || !window.$userInfo.sszs) {
+        next('/teacher/read')
+      }
+      else {
+        next()
       }
     }
   }

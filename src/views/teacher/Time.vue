@@ -18,9 +18,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.lxrq || !this.$userInfo.days) {
-        this.$router.replace('/teacher/distance')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.lxrq || !window.$userInfo.days) {
+        next('/teacher/distance')
+      }
+      else {
+        next()
       }
     }
   }

@@ -18,9 +18,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.scjyrq) {
-        this.$router.replace('/student/food')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.scjyrq) {
+        next('/student/food')
+      }
+      else {
+        next()
       }
     }
   }

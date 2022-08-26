@@ -17,9 +17,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.jg || !this.$userInfo.distance) {
-        this.$router.replace('/student/study')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.jg || !window.$userInfo.distance) {
+        next('/student/study')
+      }
+      else {
+        next()
       }
     }
   }

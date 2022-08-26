@@ -22,9 +22,12 @@
         return this.$userInfo.jslb === '1' ? '/teacher/education' : '/teacher/service'
       }
     },
-    created() {
-      if (!this.$userInfo.jg || !this.$userInfo.distance) {
-        this.$router.replace(this.to)
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.jg || !window.$userInfo.distance) {
+        next(window.$userInfo.jslb === '1' ? '/teacher/education' : '/teacher/service')
+      }
+      else {
+        next()
       }
     }
   }

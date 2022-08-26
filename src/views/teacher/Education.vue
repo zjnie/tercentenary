@@ -18,9 +18,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.chineseEra || !this.$userInfo.skrs) {
-        this.$router.replace('/teacher/read')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.chineseEra || !window.$userInfo.skrs) {
+        next('/teacher/read')
+      }
+      else {
+        next()
       }
     }
   }

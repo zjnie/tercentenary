@@ -26,10 +26,6 @@ export default [
     component: dynamicImport('Study')
   },
   {
-    path: basePath + '/sport',
-    component: dynamicImport('Sport')
-  },
-  {
     path: basePath + '/read',
     component: dynamicImport('Read')
   },

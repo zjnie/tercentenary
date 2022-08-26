@@ -17,9 +17,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.cqctdk) {
-        this.$router.replace('/student/photo')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.cqctdk) {
+        next('/student/photo')
+      }
+      else {
+        next()
       }
     }
   }

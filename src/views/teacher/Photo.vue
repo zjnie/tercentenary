@@ -90,7 +90,7 @@
       //   this.phoneImage = data
       // },
       getFile(file) {
-        console.log(file.size)
+        console.log(file, file.size)
         const formData = new FormData()
         formData.append('fileUpload0', file)
 

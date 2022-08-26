@@ -17,9 +17,12 @@
     data() {
       return {}
     },
-    created() {
-      if (!this.$userInfo.rxny || !this.$userInfo.yxmc) {
-        this.$router.replace('/student/distance')
+    beforeRouteEnter(to, from, next) {
+      if (!window.$userInfo.rxny || !window.$userInfo.yxmc) {
+        next('/new-student/distance')
+      }
+      else {
+        next()
       }
     }
   }
