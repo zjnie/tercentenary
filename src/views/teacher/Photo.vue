@@ -18,7 +18,6 @@
           :option="option"
           class="btn-upload-input"
           @getFile="getFile"
-          @getbase64="getbase64"
           @touchstart.native.stop
           @touchend.native.stop
         />
@@ -53,7 +52,9 @@
           fixed: false,
           autoCropWidth: 240,
           autoCropHeight: 300,
-          info: true
+          info: true,
+          infoTrue: true,
+          high: false
         }
       }
     },
@@ -85,18 +86,20 @@
           }
         })
       },
-      getbase64(data) {
-        this.phoneImage = data
-      },
+      // getbase64(data) {
+      //   this.phoneImage = data
+      // },
       getFile(file) {
-        console.log(file)
+        console.log(file.size)
         const formData = new FormData()
         formData.append('fileUpload0', file)
 
         axios.post(`/rsfw/sys/${window.$folderName}/upload/uploadZp.do`, formData).then(res => {
-          if (res.data.code !== 0) {
-            this.$toast.show('上传失败')
+          if (res.data.code === 0) {
             this.phoneImage = `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`
+          }
+          else {
+            this.$toast.show('上传失败')
           }
         }).catch(() => {
           this.$toast.show('上传失败')

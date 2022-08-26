@@ -69,10 +69,10 @@
           0: '/teacher',
           1: '/teacher',
           2: '/student',
-          3: '/new-student'
+          3: '/new-student/photo'
         }
 
-        this.$router.replace(path[2])
+        this.$router.replace(path[3])
       },
       getUserInfo() {
         let params = {}
