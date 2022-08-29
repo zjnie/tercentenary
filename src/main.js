@@ -7,8 +7,8 @@ import '@/components/index.js'
 
 Vue.config.productionTip = false
 
-import VConsole from 'vconsole'
-new VConsole()
+// import VConsole from 'vconsole'
+// new VConsole()
 
 new Vue({
   router,

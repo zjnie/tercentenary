@@ -34,9 +34,8 @@
 
   const frames = [
     { image: require('@/assets/teacher/photo-frame-1.png'), padding: '46px 20px 85px 20px' },
-    { image: require('@/assets/teacher/photo-frame-2.png'), padding: '83px 20px 35px 20px' },
-    { image: require('@/assets/teacher/photo-frame-3.png'), padding: '50px 20px 70px 20px' },
-    { image: require('@/assets/teacher/photo-frame-4.png'), padding: '50px 22px 70px 20px' }
+    { image: require('@/assets/teacher/photo-frame-2.png'), padding: '50px 20px 70px 20px' },
+    { image: require('@/assets/teacher/photo-frame-3.png'), padding: '50px 22px 70px 20px' }
   ]
 
   export default {
@@ -45,7 +44,7 @@
     },
     data() {
       return {
-        frameIndex: this.$userInfo.xkId || 0,
+        frameIndex: this.$userInfo.xkId || Math.floor(Math.random() * 3),
         phoneImage: `/rsfw/sys/emapcomponent/file/getFileByToken/nsxq-${ this.$userInfo.id }.do?_=${ Date.now() }`,
         visible: false,
         option: {
@@ -75,7 +74,7 @@
     },
     methods: {
       onSelect() {
-        const frameIndex = [1, 2, 3, 0][this.frameIndex]
+        const frameIndex = [1, 2, 0][this.frameIndex]
         axios.get(`/rsfw/sys/${window.$folderName}/jszt/saveXk.do`, {
           params: {
             xkId: frameIndex
