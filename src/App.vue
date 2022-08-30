@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <button type="button" class="btn-play" @click="toggle">播放视频</button>
+    <audio ref="audio" src="horse.mp3" loop>
+      您的浏览器不支持该音频格式。
+    </audio>
     <transition :name="name">
       <router-view class="router-view"></router-view>
     </transition>
@@ -30,7 +34,8 @@
 
       return {
         code,
-        name: 'slide-up'
+        name: 'slide-up',
+        isPaused: true
       }
     },
     created() {
@@ -42,13 +47,23 @@
       }
     },
     methods: {
+      toggle() {
+        this.isPaused ? this.play() : this.pause()
+      },
+      play() {
+        this.$refs.audio.play()
+        this.isPaused = false
+      },
+      pause() {
+        this.$refs.audio.pause()
+        this.isPaused = true
+      },
       getMock() {
         Vue.prototype.$userInfo = {
           role: 1,
           id: 2010010,
           wid: 2010010,
           editable: true,
-          isVisitor: false,
           years: 20,
           lxrq: '2010-25-45',
           rxny: '2010-25-45',
@@ -98,7 +113,6 @@
             id: datas.id,
             role: datas.role,
             editable: !this.code,
-            isVisitor: datas.role === 0
           }
 
           window.$userInfo = Vue.prototype.$userInfo
@@ -131,6 +145,13 @@
       opacity: 0;
       font-family: 'SourceHanSerifCN-Bold';
     }
+  }
+
+  .btn-play {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 99;
   }
 
   .router-view {

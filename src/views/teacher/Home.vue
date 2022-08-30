@@ -15,6 +15,7 @@
     },
     methods: {
       next() {
+        this.$parent.play()
         this.$router.push('/teacher/history')
       }
     }
@@ -25,10 +26,6 @@
   .container {
     background-image: url("@/assets/teacher/home-bg.jpg") !important;
   }
-
-  //.container.slide-enter-to {
-  //  transition-duration: 0s;
-  //}
 
   .logo {
     margin-top: 30px;

@@ -11,20 +11,33 @@
       <p class="highlight">{{ count }}位师生</p>
       <p>为南师大点亮生日蜡烛</p>
       <a v-if="$userInfo.editable" class="highlight" @click="onShare">我也去点亮</a>
-      <p v-if="$userInfo.years" class="font-12 mt-50">分享<span class="highlight">“我和南师大的{{ $userInfo.years }}年”</span></p>
-      <p v-else class="font-12 mt-50">分享<span class="highlight">“庆祝南京师范大学建校120周年”</span></p>
+      <p class="font-12 mt-50">参与点亮南师百廿庆生蜡烛</p>
+<!--      <p v-if="$userInfo.years" class="font-12 mt-50">分享<span class="highlight">“我和南师大的{{ $userInfo.years }}年”</span></p>-->
+<!--      <p v-else class="font-12 mt-50">分享<span class="highlight">“庆祝南京师范大学建校120周年”</span></p>-->
       <p class="font-12">前120名将获得专属校庆纪念奖</p>
+      <QRCode v-bind="options" />
     </div>
   </Container>
 </template>
 
 <script>
   import axios from 'axios'
+  import QRCode from 'vue-qr'
 
   export default {
+    components: {
+      QRCode
+    },
     data() {
       return {
-        count: this.$userInfo.zfjs
+        count: this.$userInfo.zfjs,
+        options: {
+          bgSrc: require('@/assets/teacher/photo-frame-1.png'),
+          text: 'http://www.baidu.com',
+          size: 200,
+          margin: 50,
+          whiteMargin: false
+        }
       }
     },
     created() {

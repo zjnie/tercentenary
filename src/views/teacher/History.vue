@@ -46,7 +46,7 @@
     },
     computed: {
       to() {
-        return this.$userInfo.isVisitor ? '/teacher/photo' : '/teacher/time'
+        return this.$userInfo.role === 0 ? '/teacher/photo' : '/teacher/time'
       }
     },
     methods: {

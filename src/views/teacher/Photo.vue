@@ -12,7 +12,7 @@
         />
       </div>
       <div v-if="$userInfo.editable" class="footer">
-        <span class="btn btn-select" @click="onSelect">重选相框</span>
+        <span class="btn btn-select" @click="onSelect">换种风格</span>
         <span class="btn btn-upload">
         <h5-cropper
           :option="option"
@@ -34,8 +34,9 @@
 
   const frames = [
     { image: require('@/assets/teacher/photo-frame-1.png'), padding: '46px 20px 85px 20px' },
-    { image: require('@/assets/teacher/photo-frame-2.png'), padding: '50px 20px 70px 20px' },
-    { image: require('@/assets/teacher/photo-frame-3.png'), padding: '50px 22px 70px 20px' }
+    { image: require('@/assets/teacher/photo-frame-2.png'), padding: '83px 20px 35px 20px' },
+    { image: require('@/assets/teacher/photo-frame-3.png'), padding: '50px 20px 70px 20px' },
+    { image: require('@/assets/teacher/photo-frame-4.png'), padding: '50px 22px 70px 20px' }
   ]
 
   export default {
@@ -74,7 +75,7 @@
     },
     methods: {
       onSelect() {
-        const frameIndex = [1, 2, 0][this.frameIndex]
+        const frameIndex = [1, 2, 3, 0][this.frameIndex]
         axios.get(`/rsfw/sys/${window.$folderName}/jszt/saveXk.do`, {
           params: {
             xkId: frameIndex
