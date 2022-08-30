@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <button type="button" class="btn-play" @click="toggle">播放视频</button>
-    <audio ref="audio" src="horse.mp3" loop>
-      您的浏览器不支持该音频格式。
-    </audio>
+    <audio ref="audio" src="horse.mp3" loop></audio>
     <transition :name="name">
       <router-view class="router-view"></router-view>
     </transition>
@@ -145,6 +143,10 @@
       opacity: 0;
       font-family: 'SourceHanSerifCN-Bold';
     }
+  }
+
+  .audio {
+    opacity: 0;
   }
 
   .btn-play {
